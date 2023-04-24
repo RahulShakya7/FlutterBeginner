@@ -20,7 +20,7 @@ class _SimpleInterestViewState extends State<SimpleInterestView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Expense'),
+        title: const Text('Simple Interest'),
         centerTitle: true,
         elevation: 0,
       ),
@@ -53,7 +53,7 @@ class _SimpleInterestViewState extends State<SimpleInterestView> {
               onChanged: (value) => {
                 rate = double.tryParse(value) ?? 0,
               },
-              decoration:const InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Enter the rate',
                 border: OutlineInputBorder(),
               ),
@@ -65,7 +65,7 @@ class _SimpleInterestViewState extends State<SimpleInterestView> {
                   result = (principle * rate * time) / 100;
                 });
               },
-              child: const Text('Simple Interest'),
+              child: const Text('Calculate Simple Interest'),
             ),
             const SizedBox(height: 16),
             Text(
