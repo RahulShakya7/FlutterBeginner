@@ -29,13 +29,13 @@ class _RandomNumberViewState extends State<RandomNumberView> {
     });
   }
 
-  void checkAnswer({var num1 = 0, var num2 = 0}) {
+  void checkAnswer({var selected = 0, var remaining = 0}) {
     if (++counter > 10) {
       restartGame();
     } else {
-      if (num1 > num2) {
+      if (selected > remaining) {
         correctAnswer++;
-      } else if (num1 < num2) {
+      } else if (selected < remaining) {
         wrongAnswer++;
       }
       generateNumber();
@@ -68,7 +68,7 @@ class _RandomNumberViewState extends State<RandomNumberView> {
                   const SizedBox(height: 170),
                   ElevatedButton(
                     onPressed: () {
-                      checkAnswer(num1: num1, num2: num2);
+                      checkAnswer(selected: num1, remaining: num2);
                     },
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(120, 130),
@@ -92,7 +92,7 @@ class _RandomNumberViewState extends State<RandomNumberView> {
                   const SizedBox(height: 170),
                   ElevatedButton(
                     onPressed: () {
-                      checkAnswer(num1: num1, num2: num2);
+                      checkAnswer(selected: num2, remaining: num1);
                     },
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(120, 130),
@@ -154,6 +154,21 @@ class _RandomNumberViewState extends State<RandomNumberView> {
                   style: const TextStyle(
                     fontSize: 20,
                     color: Colors.red,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              RichText(
+                text: TextSpan(
+                  text: 'Clicks : $counter',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: Colors.cyan,
                   ),
                 ),
               ),

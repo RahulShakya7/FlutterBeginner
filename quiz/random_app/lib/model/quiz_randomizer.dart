@@ -1,18 +1,16 @@
 import 'dart:math';
 
-class Randomizer{
-
-  List<int> generateRandom(){
+class Randomizer {
+  List<int> generateRandom() {
     var x = Random().nextInt(100);
     var y = Random().nextInt(100);
 
-    if(x != y){
-      return [x,y];
-    }else{
+    if (x != y) {
+      return [x, y];
+    } else {
       generateRandom();
     }
 
-    return [1,2];
+    return [1, 2];
   }
-
 }
