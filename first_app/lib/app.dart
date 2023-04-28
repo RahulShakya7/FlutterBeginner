@@ -1,11 +1,12 @@
-import 'package:first_app/model/circle.dart';
-import 'package:first_app/view/arithmatic_view.dart';
-import 'package:first_app/view/center_name.dart';
-import 'package:first_app/view/circle_area.dart';
-import 'package:first_app/view/dashboard.dart';
-import 'package:first_app/view/si_view.dart';
-
 import 'package:flutter/material.dart';
+
+import 'view/arithmatic_view.dart';
+import 'view/center_name.dart';
+import 'view/circle_area.dart';
+import 'view/column_view.dart';
+import 'view/dashboard.dart';
+import 'view/rich_text.dart';
+import 'view/si_view.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -34,6 +35,8 @@ class App extends StatelessWidget {
         '/siRoute': (context) => const SimpleInterestView(),
         '/areaCRoute': (context) => const CircleView(),
         '/nameRoute': (context) => const NameView(),
+        '/richtextRoute': (context) => const RichTextView(),
+        '/columnRoute': (context) => const ColumnView(),
       },
     );
   }

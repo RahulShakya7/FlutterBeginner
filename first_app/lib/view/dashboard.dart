@@ -18,9 +18,7 @@ class DashboardView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            const SizedBox(
-              height: 14,
-            ),
+            const SizedBox(),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/arithmaticRoute');
@@ -53,6 +51,24 @@ class DashboardView extends StatelessWidget {
                 Navigator.pushNamed(context, '/nameRoute');
               },
               child: const Text('Names'),
+            ),
+            const SizedBox(
+              height: 14,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/richtextRoute');
+              },
+              child: const Text('Rich Text'),
+            ),
+            const SizedBox(
+              height: 14,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/columnRoute');
+              },
+              child: const Text('Column'),
             )
           ],
         ),
