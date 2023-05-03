@@ -52,6 +52,11 @@ class _ArithmeticViewState extends State<ArithmeticView> {
         int.parse(firstController.text),
         int.parse(secondController.text),
       );
+      Navigator.pushNamed(
+        context,
+        '/outputSRoute',
+        arguments: result,
+      );
     });
   }
 

@@ -1,3 +1,5 @@
+import 'package:first_app/view/container_view.dart';
+import 'package:first_app/view/output_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'view/arithmatic_view.dart';
@@ -37,6 +39,8 @@ class App extends StatelessWidget {
         '/nameRoute': (context) => const NameView(),
         '/richtextRoute': (context) => const RichTextView(),
         '/columnRoute': (context) => const ColumnView(),
+        '/outputSRoute': (context) => const OutputScreenView(),
+        '/containerRoute': (context) => const ContainerView(),
       },
     );
   }
