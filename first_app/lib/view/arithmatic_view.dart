@@ -1,3 +1,4 @@
+import 'package:first_app/common/show_my_message.dart';
 import 'package:flutter/material.dart';
 
 import '../model/arithmatic.dart';
@@ -52,11 +53,11 @@ class _ArithmeticViewState extends State<ArithmeticView> {
         int.parse(firstController.text),
         int.parse(secondController.text),
       );
-      Navigator.pushNamed(
-        context,
-        '/outputSRoute',
-        arguments: result,
-      );
+      // Navigator.pushNamed(
+      //   context,
+      //   '/outputSRoute',
+      //   arguments: result,
+      // );
     });
   }
 
@@ -122,6 +123,7 @@ class _ArithmeticViewState extends State<ArithmeticView> {
                       if (myKey.currentState!.validate()) {
                         add();
                       }
+                      showmessage(context, "$result", color: Colors.green);
                     },
                     child: const Text('ADD'),
                   ),
@@ -134,13 +136,14 @@ class _ArithmeticViewState extends State<ArithmeticView> {
                       if (myKey.currentState!.validate()) {
                         sub();
                       }
+                      showmessage(context, "$result", color: Colors.red);
                     },
                     child: const Text('SUB'),
                   ),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Sum is : $result',
+                  'Result : $result',
                   style: const TextStyle(
                     fontSize: 20,
                     fontStyle: FontStyle.italic,

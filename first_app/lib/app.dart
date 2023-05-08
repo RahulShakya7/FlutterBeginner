@@ -1,12 +1,16 @@
 import 'package:first_app/view/container_view.dart';
+import 'package:first_app/view/load_image.dart';
 import 'package:first_app/view/output_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'view/arithmatic_view.dart';
 import 'view/center_name.dart';
 import 'view/circle_area.dart';
+import 'view/class_exercise.dart';
 import 'view/column_view.dart';
 import 'view/dashboard.dart';
+import 'view/media_query_view.dart';
+import 'view/register_view.dart';
 import 'view/rich_text.dart';
 import 'view/si_view.dart';
 
@@ -41,6 +45,10 @@ class App extends StatelessWidget {
         '/columnRoute': (context) => const ColumnView(),
         '/outputSRoute': (context) => const OutputScreenView(),
         '/containerRoute': (context) => const ContainerView(),
+        '/loadimagesRoute': (context) => const LoadImageView(),
+        '/registerRoute': (context) => const RegisterView(),
+        '/mediaRoute': (context) => const MediaQueryView(),
+        '/flexRoute': (context) => const TabletView(),
       },
     );
   }

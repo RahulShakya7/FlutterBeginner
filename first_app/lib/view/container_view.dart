@@ -20,13 +20,28 @@ class _ContainerViewState extends State<ContainerView> {
   Widget build(BuildContext context) {
     // result = ModalRoute.of(context)!.settings.arguments as int?;
     return Scaffold(
-      body: SafeArea(
+      appBar: AppBar(
+        title: const Text('Circle Area'),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        alignment: Alignment.topRight,
         child: Container(
-          color: Colors.green,
-          height: 200,
-          width: 200,
-          child: const Center(child: Text('Hello World')),
-        ),
+            // color: Colors.green,
+            height: 200,
+            width: 200,
+            decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.green,
+                border: Border.all(
+                  color: Colors.black,
+                  width: 2,
+                )),
+            alignment: Alignment.center,
+            child: const Text('Hello World')),
       ),
     );
   }
