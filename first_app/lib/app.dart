@@ -4,6 +4,7 @@ import 'package:first_app/view/output_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'view/arithmatic_view.dart';
+import 'view/card_view.dart';
 import 'view/center_name.dart';
 import 'view/circle_area.dart';
 import 'view/class_exercise.dart';
@@ -49,6 +50,7 @@ class App extends StatelessWidget {
         '/registerRoute': (context) => const RegisterView(),
         '/mediaRoute': (context) => const MediaQueryView(),
         '/flexRoute': (context) => const TabletView(),
+        '/cardRoute': (context) => const CardView(),
       },
     );
   }

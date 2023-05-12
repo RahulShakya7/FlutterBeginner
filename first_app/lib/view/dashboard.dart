@@ -122,6 +122,15 @@ class DashboardView extends StatelessWidget {
                   Navigator.pushNamed(context, '/flexRoute');
                 },
                 child: const Text('Flexible View'),
+              ),
+              const SizedBox(
+                height: 14,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/cardRoute');
+                },
+                child: const Text('Card View'),
               )
             ],
           ),

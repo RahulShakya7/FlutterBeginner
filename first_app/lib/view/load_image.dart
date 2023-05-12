@@ -34,6 +34,7 @@ class _LoadImageViewState extends State<LoadImageView> {
               // ),
               // Image.asset('assets/images/car1.jpg'),
               // Image.asset('assets/images/car2.jpg'),
+              // https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFuJTIwZmFjZXxlbnwwfHwwfHw%3D&w=1000&q=80
               Image.network(
                   'https://lucidmotors.com/s3fs-public/2023-03/lucid-air-pure-whitney.webp?VersionId=_P_Bi4coq9vSXwlT5E_KkS1frYgvgjm5')
             ],
