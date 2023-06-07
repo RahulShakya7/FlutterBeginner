@@ -131,7 +131,52 @@ class DashboardView extends StatelessWidget {
                   Navigator.pushNamed(context, '/cardRoute');
                 },
                 child: const Text('Card View'),
-              )
+              ),
+              const SizedBox(
+                height: 14,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/gridRoute');
+                },
+                child: const Text('Grid View'),
+              ),
+              const SizedBox(
+                height: 14,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/stackRoute');
+                },
+                child: const Text('Stack View'),
+              ),
+              const SizedBox(
+                height: 14,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/appRoute');
+                },
+                child: const Text('App View'),
+              ),
+              const SizedBox(
+                height: 14,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/newRoute');
+                },
+                child: const Text('New View'),
+              ),
+              const SizedBox(
+                height: 14,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/dataRoute');
+                },
+                child: const Text('Data Table View'),
+              ),
             ],
           ),
         ),

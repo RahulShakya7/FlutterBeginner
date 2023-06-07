@@ -11,14 +11,14 @@ class ColumnView extends StatelessWidget {
         centerTitle: true,
         elevation: 0,
       ),
-      body: Column(
+      body: const Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
+                children: [
                   Icon(
                     Icons.donut_large,
                     size: 50,
@@ -48,7 +48,7 @@ class ColumnView extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
+                children: [
                   Icon(
                     Icons.electric_bike,
                     size: 50,
@@ -74,7 +74,7 @@ class ColumnView extends StatelessWidget {
               ),
             ],
           ),
-          const Icon(
+          Icon(
             Icons.catching_pokemon_outlined,
             size: 50,
             color: Colors.red,
