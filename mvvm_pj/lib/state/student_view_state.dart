@@ -7,7 +7,12 @@ class StudentState {
 
   StudentState({required this.isLoading, required this.students, this.error});
 
-  StudentState.initialState() : this(isLoading: false, students: []);
+  // Initial State
+  StudentState.initialState()
+      : this(
+          isLoading: false,
+          students: [],
+        );
 
   StudentState copyWith(
       {bool? isLoading, List<Student>? students, String? error}) {

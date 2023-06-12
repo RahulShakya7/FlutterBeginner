@@ -20,6 +20,7 @@ class _AddStudentViewState extends ConsumerState<AddStudentView> {
 
   @override
   Widget build(BuildContext context) {
+    // rebuilds after changes
     final data = ref.watch(studentViewModelProvider);
 
     return Scaffold(
@@ -114,27 +115,34 @@ class _AddStudentViewState extends ConsumerState<AddStudentView> {
                   ),
                 ),
                 data.students.isNotEmpty
-                    ? Container(
-                        child: ListView.builder(
-                            scrollDirection: Axis.vertical,
-                            shrinkWrap: true,
-                            itemCount: data.students.length,
-                            itemBuilder: (context, index) {
-                              return ListTile(
-                                title: Text(data.students[index].fname!),
-                                subtitle: Text(data.students[index].lname!),
-                                trailing: Wrap(
-                                  children: [
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(Icons.delete),
-                                    )
-                                  ],
-                                ),
-                              );
-                            }),
-                      )
-                    : const Text('Data chaina bhai')
+                    ? ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        itemCount: data.students.length,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            title: Text(data.students[index].fname!),
+                            subtitle: Text(data.students[index].lname!),
+                            trailing: Wrap(
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    ref
+                                        .read(studentViewModelProvider.notifier)
+                                        .deleteStudent(data.students[index]);
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(const SnackBar(
+                                      content: Text("Student Deleted"),
+                                      backgroundColor: Colors.green,
+                                    ));
+                                  },
+                                  icon: const Icon(Icons.delete),
+                                )
+                              ]
+                            ),
+                          );
+                        })
+                    : const Text('No Data')
               ],
             ),
           ),

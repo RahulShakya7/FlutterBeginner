@@ -1,0 +1,11 @@
+MVVM
+- data entered is sent to view model
+- add button changes state after entering model view 
+- never return from view model
+- not use Provider in view model instead use StateNotifierProvider
+(object of a class must always use Provider only. this => current, super => parent)
+
+// Assignment
+
+student and module entities (4 modules)
+fname, lname, module, marks and mname
