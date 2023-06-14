@@ -1,12 +1,10 @@
 import 'package:hive/hive.dart';
-
 import 'package:hive_pj/features/batch/data/model/batch_hive_model.dart';
-
 import 'package:hive_pj/features/course/data/model/course_hive_model.dart';
-
 import 'package:uuid/uuid.dart';
 
 import '../../../../config/constants/hive_table_constant.dart';
+import '../../domain/entity/student_entity.dart';
 
 // part should be below import!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -64,8 +62,40 @@ class StudentHiveModel {
     required this.password,
   }) : studentId = studentId ?? const Uuid().v4();
 
+  // Convert Hive Object to Entity
+  StudentEntity toEntity() => StudentEntity(
+        studentId: studentId,
+        fName: fName,
+        lName: lName,
+        phone: phone,
+        batch: batch.toEntity(),
+        courses: CourseHiveModel.empty().toEntityList(courses),
+        username: username,
+        password: password,
+      );
+
+  // Convert Entity to Hive Object
+  StudentHiveModel toHiveModel(StudentEntity entity) => StudentHiveModel(
+        studentId: const Uuid().v4(),
+        fName: entity.fName,
+        lName: entity.lName,
+        phone: entity.phone,
+        batch: BatchHiveModel.empty().toHiveModel(entity.batch!),
+        courses: CourseHiveModel.empty().toHiveModelList(entity.courses),
+        username: entity.username,
+        password: entity.password,
+      );
+
+  // Convert Entity List to Hive List
+  List<StudentHiveModel> toHiveModelList(List<StudentEntity> entities) =>
+      entities.map((entity) => toHiveModel(entity)).toList();
+
   @override
   String toString() {
-    return 'studentId: $studentId, fNam: $fName';
+    return 'studentId: $studentId, fname: $fName, lname: $lName, phone: $phone, batch: $batch, courses: $courses, username: $username, password: $password';
   }
+}
+
+class HiveField {
+  const HiveField(int i);
 }

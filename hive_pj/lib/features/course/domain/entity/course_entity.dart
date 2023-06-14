@@ -1,8 +1,8 @@
-class CourseEnitity {
+class CourseEntity {
   final String? courseId;
   final String? courseName;
 
-  CourseEnitity({
+  CourseEntity({
     this.courseId,
     required this.courseName,
   });
