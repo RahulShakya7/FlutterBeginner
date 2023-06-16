@@ -66,9 +66,8 @@ class _LogInViewState extends State<LogInView> {
                   },
                 ),
                 _gap,
-                _gap,
-                _gap,
                 SizedBox(
+                  width: double.infinity,
                   child: ElevatedButton(
                       onPressed: () {
                         if (key.currentState!.validate()) {
@@ -76,6 +75,15 @@ class _LogInViewState extends State<LogInView> {
                         }
                       },
                       child: const Text('Log In')),
+                ),
+                _gap,
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/registerRoute');
+                      },
+                      child: const Text('Register')),
                 )
               ],
             ),

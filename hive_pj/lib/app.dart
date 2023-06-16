@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive_pj/features/home/presentation/view/register.dart';
 
 import 'features/home/presentation/view/login.dart';
 
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const LogInView(),
+        '/registerRoute': (context) => const RegisterView(),
       },
     );
   }

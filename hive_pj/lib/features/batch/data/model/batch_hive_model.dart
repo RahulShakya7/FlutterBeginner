@@ -17,7 +17,7 @@ class BatchHiveModel {
   final String? batchId;
 
   @HiveField(1)
-  final String? batchName;
+  final String batchName;
 
   BatchHiveModel.empty() : this(batchId: '', batchName: '');
 

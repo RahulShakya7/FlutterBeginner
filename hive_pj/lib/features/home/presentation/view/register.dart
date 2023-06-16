@@ -18,7 +18,6 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
   );
 
   // final List<BatchEntity> _dropDownValue = BatchState.lstBatch;
-  final List<CourseEntity> _lstCourses = CourseState.lstCourses;
 
   final _fNameController = TextEditingController();
   final _lNameController = TextEditingController();
@@ -27,6 +26,7 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
   final _passwordController = TextEditingController();
 
   BatchEntity? _dropDownValue;
+  final List<CourseEntity> _lstCourses = [];
 
   late BatchEntity _batch;
   final List<String> _lstChosenCourses = [];
@@ -57,6 +57,8 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
   @override
   Widget build(BuildContext context) {
     final batchState = ref.watch(batchViewModelProvider);
+    // final courseState = ref.watch(courseViewModelProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Register"),
@@ -105,31 +107,31 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                 },
               ),
               _gap,
-              DropdownButtonFormField(
-                validator: (value) {
-                  if (value == null) {
-                    return 'Please select a batch';
-                  }
-                  return null;
-                },
-                decoration: const InputDecoration(
-                  labelText: 'Select Batch',
-                  border: OutlineInputBorder(),
+              if (batchState.isLoading) ...{
+                const Center(
+                  child: CircularProgressIndicator(),
+                )
+              } else if (batchState.error != null) ...{
+                Center(
+                  child: Text(batchState.error!),
+                )
+              } else ...{
+                DropdownButtonFormField(
+                  items: batchState.batches
+                      .map((e) => DropdownMenuItem(
+                            value: e,
+                            child: Text(e.batchName),
+                          ))
+                      .toList(),
+                  onChanged: (value) {
+                    _dropDownValue = value;
+                  },
+                  value: _dropDownValue,
+                  decoration: const InputDecoration(
+                    labelText: 'Select Batch',
+                  ),
                 ),
-                items: _dropDownValue
-                    .map(
-                      (batch) => DropdownMenuItem(
-                        value: batch,
-                        child: Text(batch.batchName!),
-                      ),
-                    )
-                    .toList(),
-                onChanged: (value) {
-                  setState(() {
-                    _batch = value!;
-                  });
-                },
-              ),
+              },
               _gap,
               MultiSelectDialogField(
                 items: _lstCourses
@@ -138,7 +140,7 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                 listType: MultiSelectListType.CHIP,
                 onConfirm: (values) {
                   _lstChosenCourses.clear();
-                  print(values);
+                  // print(values);
                   chosenCourse = values;
                   for (var i = 0; i < chosenCourse.length; i++) {
                     _lstChosenCourses.add(chosenCourse[i].courseId!);

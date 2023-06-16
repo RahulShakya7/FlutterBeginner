@@ -1,6 +1,6 @@
 class BatchEntity {
   final String? batchId;
-  final String? batchName;
+  final String batchName;
 
   BatchEntity({
     this.batchId,
